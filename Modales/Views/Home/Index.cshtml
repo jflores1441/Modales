@@ -1,0 +1,31 @@
+﻿@using System.Xml.Linq
+@model XDocument
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="jumbotron">
+    <h1>Nivisix Soluciones</h1>
+</div>
+<div class="row">
+    <h3>@Html.ActionLink("Nuevo", "Create", null, new { data_modal = "" })</h3><br />
+    <table class="table">
+        <tr>
+            <th>ISBN</th>
+            <th>Título</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+        @foreach (XElement elemento in Model.Root.Elements())
+        {
+            <tr>
+                <td>@elemento.Attribute("ISBN").Value</td>
+                <td>@elemento.Attribute("title").Value</td>
+                <td>@elemento.Attribute("price").Value</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { isbn = @elemento.Attribute("ISBN").Value }, new { data_modal = "" } ) |
+                    @Html.ActionLink("Eliminar", "Delete", new { isbn = @elemento.Attribute("ISBN").Value }, new { data_modal = "" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

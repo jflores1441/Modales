@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<bookstore>
+  <book ISBN="10-000000-001" title="The Iliad and The Odyssey" price="1295" />
+  <book ISBN="10-000000-999" title="Anthology of World Literature" price="24.95" />
+  <book ISBN="11-000000-002" title="Computer Dictionary" price="24.95" />
+  <book ISBN="11-000000-003" title="Cooking on a Budget" price="30.65" />
+  <book ISBN="11-000000-004" title="Great Works of Art" price="29.95" />
+</bookstore>

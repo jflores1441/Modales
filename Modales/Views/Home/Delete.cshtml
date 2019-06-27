@@ -1,0 +1,33 @@
+﻿@model Modales.Models.BookModel
+@{
+    ViewBag.Title = "Eliminar Aplicación";
+}
+@Scripts.Render("~/bundles/jqueryval")
+<section>
+    <div class="modal-shadow text-center">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>@ViewBag.Title</h4>
+            </div>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="text-center">
+                    ¿Está seguro de querer eliminar el libro:
+                    @Html.DisplayFor(m => m.Title)?
+                </div>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <div>
+                        <input type="submit" value="Eliminar" class="btn btn-default" />
+                        <input type="button" value="Cancelar" class="btn btn-default" data-dismiss="modal" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

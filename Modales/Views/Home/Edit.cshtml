@@ -1,0 +1,63 @@
+﻿@model Modales.Models.BookModel
+@{
+    ViewBag.Title = "Agregar Libro";
+}
+@Scripts.Render("~/bundles/jqueryval")
+<section>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="modal-shadow text-center">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>@ViewBag.Title</h4>
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="text-center">
+                        @Html.TextBoxFor(m => m.ISBN,
+                        new
+                        {
+                            @class = "form-control",
+                            placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.ISBN).ToHtmlString()),
+                            style = "margin: 0 auto;",
+                            disabled = "disabled"
+                        })
+                        @Html.ValidationMessageFor(m => m.ISBN, "", new { @class = "text-info" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="text-center">
+                        @Html.TextBoxFor(m => m.Title,
+                        new
+                        {
+                            @class = "form-control",
+                            placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Title).ToHtmlString()),
+                            style = "margin: 0 auto;"
+                        })
+                        @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-info" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="text-center">
+                        @Html.TextBoxFor(m => m.Price,
+                        new
+                        {
+                            @class = "form-control",
+                            placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Price).ToHtmlString()),
+                            style = "margin: 0 auto;"
+                        })
+                        @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-info" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <input type="submit" value="Guardar" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</section>
